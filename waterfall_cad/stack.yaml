@@ -1,0 +1,9 @@
+snapshot: lts-23.15
+
+packages:
+- .
+
+extra-deps:
+- waterfall-cad-0.6.0.0
+- waterfall-cad-svg-0.6.0.0
+- opencascade-hs-0.6.0.0

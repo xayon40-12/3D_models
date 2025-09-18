@@ -1,0 +1,33 @@
+name:                3D-models
+version:             0.1.0.0
+github:              "githubuser/3D-models"
+license:             BSD-3-Clause
+author:              "Author name here"
+maintainer:          "example@example.com"
+copyright:           "2025 Author name here"
+
+extra-source-files:
+- README.md
+
+description:         Please see the README on GitHub at <https://github.com/githubuser/3D-models#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- linear
+- waterfall-cad
+- waterfall-cad-svg
+- lens
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+
+library:
+  source-dirs: .
