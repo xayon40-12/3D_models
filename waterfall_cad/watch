@@ -1,0 +1,4 @@
+#!/usr/bin/env nu
+
+job spawn { f3d --watch -x -g --grid-absolute --grid-unit 1 MinimalJunction.stl }
+watch MinimalJunction.hs {|_, f| try { time nu -c $f } }
