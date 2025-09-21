@@ -58,13 +58,17 @@ knob w = W.uScale w . W.rotate (V3 1 0 0) (pi/2) . W.translate (V3 0 0 (-0.375))
     `W.union`
     (W.translate (V3 (-0) (-0.5) 0.25) . W.scale (V3 0.5 1 0.25)) W.unitCube
 
-minimalJunction :: Double -> W.Solid
-minimalJunction w = do
-    knob w
-    -- W.uScale 10 $ W.scale (V3 10 10 11) W.centeredCube
+junctionI :: Double -> Double -> W.Solid
+junctionI l w =
+    (W.translate (V3 (l/2-w) 0 0) . W.scale (V3 (l-w) w w)) W.centeredCube
+    `W.union`
+    (W.translate (V3 (-l/2+w) 0 0)) (knob w)
+
+minimalJunction :: Double -> Double -> W.Solid
+minimalJunction l w = junctionI l w
 
 main :: IO ()
 main = do
-    W.writeSTL 0.001 "MinimalJunction.stl" $ minimalJunction 5
-    W.writeDiagramSVG "MinimalJunction.svg" $ W.solidDiagram (V3 0 0 (-1)) $ minimalJunction 100
+    W.writeSTL 0.001 "MinimalJunction.stl" $ minimalJunction 20 5
+    W.writeDiagramSVG "MinimalJunction.svg" $ W.solidDiagram (V3 0 0 (-1)) $ minimalJunction 200 50
 
